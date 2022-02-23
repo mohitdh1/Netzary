@@ -1,0 +1,87 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    body{
+        background-color: rgb(226, 103, 32);
+    }
+.calc {
+    width: 300px;
+    height: 500px;
+    background-color: rgb(49, 16, 110);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    border-radius: 5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0,5);
+    text-align: center;
+    padding: 30px 0px;
+}
+h2{
+    color: rgb(226, 103, 32);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+label{
+    color: rgb(226, 103, 32);
+    margin: 10px;
+}
+input {
+    width: 250px;
+    height: 30px;
+    padding: 5px;
+    margin: 10px;
+    border: none;
+    outline-color: rgb(226, 103, 32);
+    border-radius: 5px;
+    border: none;
+}
+button{
+    font-size: 18px;
+    width: 120px;
+    height: 30px;
+    color: #082032;
+    background-color: rgb(226, 103, 32);
+    border-radius: 5px;
+    font-weight: 999;
+}
+p {
+    color: rgb(226, 103, 32);
+    margin-top: 10px;
+}
+</style>
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NatZary</title>
+    </head>
+    <body>
+        <div class="calc">
+            <h2>Interest Calculator</h2>
+        <form method="post" action="/">
+            {% csrf_token %}
+        <label for="time">Start Date</label><br>
+        <input type="date" id="time" name="start_date" required><br>
+        <label>End Date</label><br>
+        <input type="date" name="end_date" required><br/>
+        <label for="amount">Principal Amount</label><br>
+        <input type="number" placeholder="Enter Principal Amount" id="amount" name="principal" required><br>
+        <label for="rate">Rate %</label><br>
+        <input type="number" placeholder="Enter Rate of Interest" id="rate" name="int"><br>
+        <button type="submit" name="calc">Calculate</button><br>
+        </form>
+        <p>Total number for years: {{year}}</p>
+        <p>Total number of months: {{month}}</p>
+        <p>Total number of days: {{day}}</p>
+        <p>Total interest {{int}}</p>
+        <p>Total Payble Amount {{final}}</p>
+        </div>
+    </body>
+</html>
